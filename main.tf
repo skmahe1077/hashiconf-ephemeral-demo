@@ -37,9 +37,3 @@ resource "aws_db_instance" "hashiconf_rds" {
   tags = { Name = "hashiconf-ephemeral-rds" }
 }
 
-# Ephemeral output shows the password only during apply (never stored afterward)
-output "hashiconf_ephemeral_password" {
-  value       = ephemeral.random_password.hashiconf_db_password.result
-  ephemeral   = true
-  description = "Password is available during apply only, not saved to state."
-}
