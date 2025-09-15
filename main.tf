@@ -7,7 +7,11 @@ ephemeral "random_password" "hashiconf_db_password" {
 # Secrets Manager stores the password via write-only (value not persisted in state/plan)
 resource "aws_secretsmanager_secret" "hashiconf_db_password" {
   name = "hashiconf-ephemeral-db-password"
-  tags =  "HashiConf Ephemeral+WriteOnly Demo"
+  tags = {
+    Name        = "hashiconf-ephemeral-secret"
+    Project     = "HashiConf Demo"
+    Environment = "Demo"
+  }
 }
 
 # Write-only secret version with version counter for rotation
@@ -30,10 +34,12 @@ resource "aws_db_instance" "hashiconf_rds" {
   allocated_storage   = 20
   username            = "dbadmin"
   skip_final_snapshot = true
-
   password_wo         = ephemeral.aws_secretsmanager_secret_version.hashiconf_db_password.secret_string
   password_wo_version = aws_secretsmanager_secret_version.hashiconf_db_password.secret_string_wo_version
-
-  tags = { Name = "hashiconf-ephemeral-rds" }
+  tags = {
+    Name        = "hashiconf-ephemeral-rds"
+    Project     = "HashiConf Demo"
+    Environment = "Demo"
+  }
 }
 
