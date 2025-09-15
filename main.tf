@@ -10,7 +10,6 @@ resource "aws_secretsmanager_secret" "hashiconf_db_password" {
   tags = {
     Name        = "hashiconf-ephemeral-secret"
     Project     = "HashiConf Demo"
-    Environment = "Demo"
   }
 }
 
@@ -39,7 +38,6 @@ resource "aws_db_instance" "hashiconf_rds" {
   tags = {
     Name        = "hashiconf-ephemeral-rds"
     Project     = "HashiConf Demo"
-    Environment = "Demo"
   }
 }
 
