@@ -44,13 +44,13 @@ This repository demonstrates how to securely generate and use secrets at runtime
    ```
 or inspect the state file (terraform.tfstate or S3 backend).
 
-✅ Only the secret version number should appear
-❌ The actual password will never be stored
+- ✅ Only the secret version number should appear
+- ❌ The actual password will never be stored
 
 4. **Rotate the secret**
    Update secret_version in variables.tf (e.g., change 1 → 2)
    
-Re-apply:
+   Re-apply:
     ```bash
     terraform apply -auto-approve
     ```
