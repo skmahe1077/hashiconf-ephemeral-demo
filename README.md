@@ -29,7 +29,7 @@ This repository demonstrates how to securely generate and use secrets at runtime
 2. **Run the demo**
  ```bash
 terraform apply -auto-approve
-
+```
 This will:
 
 - Generate a password ephemerally
