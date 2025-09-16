@@ -38,9 +38,9 @@ This will:
 
 - Create an RDS instance using the secret
 3. **Validate the secret is not persisted**
-  ```bash
+   ```bash
      terraform show
-  ```
+   ```
 or inspect the state file (terraform.tfstate or S3 backend).
 
 ✅ Only the secret version number should appear
@@ -50,10 +50,10 @@ or inspect the state file (terraform.tfstate or S3 backend).
    Update secret_version in variables.tf (e.g., change 1 → 2)
    
 Re-apply:
- ```bash
+   ```bash
     terraform apply -auto-approve
- ```
+   ```
 5. **Clean up resources**
-```bash
+   ```bash
    terraform destroy -auto-approve
- ```
+   ```
