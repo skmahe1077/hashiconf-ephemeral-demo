@@ -27,9 +27,9 @@ This repository demonstrates how to securely generate and use secrets at runtime
    ```bash
    terraform init
 2. **Run the demo**
- ```bash
+   ```bash
    terraform apply -auto-approve
-```
+  ```
 This will:
 
 - Generate a password ephemerally
@@ -37,6 +37,7 @@ This will:
 - Store it in AWS Secrets Manager via a write-only argument
 
 - Create an RDS instance using the secret
+
 3. **Validate the secret is not persisted**
    ```bash
      terraform show
@@ -50,9 +51,9 @@ or inspect the state file (terraform.tfstate or S3 backend).
    Update secret_version in variables.tf (e.g., change 1 → 2)
    
 Re-apply:
-   ```bash
+    ```bash
     terraform apply -auto-approve
-   ```
+    ```
 5. **Clean up resources**
    ```bash
    terraform destroy -auto-approve
